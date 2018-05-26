@@ -3037,7 +3037,7 @@ body.mob-safari .sidebar.sidebar-fixed {
         position: relative;
         float: none!important;
         width: auto;
-        margin-top: 0px;
+        margin-top: 17px;
         border-width: 0!important;
         box-shadow: none
     }
@@ -3322,7 +3322,7 @@ body.mob-safari .sidebar.sidebar-fixed {
     }
 
     .h-sidebar.sidebar-fixed+.main-content {
-        padding-top: 48px
+        padding-top: 88px
     }
 
     .h-sidebar.sidebar-fixed.no-gap+.main-content {
