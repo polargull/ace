@@ -688,29 +688,16 @@
 					</div>
 				</div>
 			</div>
-
-			<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
-				<i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
-			</a>
 		</div><!-- /.main-container -->
-
 		<!-- basic scripts -->
-
 		<!--[if !IE]> -->
 		<script src="assets/js/jquery-2.1.4.min.js"></script>
-
 		<!-- <![endif]-->
-
 		<!--[if IE]>
-<script src="assets/js/jquery-1.11.3.min.js"></script>
-<![endif]-->
-		<script type="text/javascript">
-			if('ontouchstart' in document.documentElement) document.write("<script src='assets/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
-		</script>
+		<script src="assets/js/jquery-1.11.3.min.js"></script>
+		<![endif]-->
 		<script src="assets/js/bootstrap.min.js"></script>
-
 		<!-- page specific plugin scripts -->
-
 		<!-- ace scripts -->
 		<script src="assets/js/ace-elements.min.js"></script>
 		<script src="assets/js/ace.min.js"></script>
@@ -721,19 +708,19 @@
 			   $('#sidebar2').insertBefore('.page-content');
 			   $('#navbar').addClass('h-navbar');
 			   $('.footer').insertAfter('.page-content');
-			   
+
 			   $('.page-content').addClass('main-content');
-			   
+
 			   $('.menu-toggler[data-target="#sidebar2"]').insertBefore('.navbar-brand');
-			   
-			   
+
+
 			   $(document).on('settings.ace.two_menu', function(e, event_name, event_val) {
 				 if(event_name == 'sidebar_fixed') {
 					 if( $('#sidebar').hasClass('sidebar-fixed') ) $('#sidebar2').addClass('sidebar-fixed')
 					 else $('#sidebar2').removeClass('sidebar-fixed')
 				 }
 			   }).triggerHandler('settings.ace.two_menu', ['sidebar_fixed' ,$('#sidebar').hasClass('sidebar-fixed')]);
-			   
+
 			   $('#sidebar2[data-sidebar-hover=true]').ace_sidebar_hover('reset');
 			   $('#sidebar2[data-sidebar-scroll=true]').ace_sidebar_scroll('reset', true);
 			})
