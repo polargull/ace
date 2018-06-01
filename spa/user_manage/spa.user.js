@@ -1,6 +1,6 @@
 /*
- * spa.js
- * Root namespace module
+ * spa.user.list.js
+ * user.list module for SPA
 */
 
 /*jslint           browser : true,   continue : true,
@@ -11,9 +11,9 @@
 */
 /*global $, spa */
 
-var spa = (function () {
-  var initModule = function ( $container ) {
-    spa.shell.initModule( $container );
+spa.user = (function () {
+  var initModule = function () {
+    spa.user.list.initModule();
   };
 
   return { initModule: initModule };

@@ -1,6 +1,6 @@
 /*
- * spa.js
- * Root namespace module
+ * spa.shell.js
+ * Shell module for SPA
 */
 
 /*jslint           browser : true,   continue : true,
@@ -11,9 +11,10 @@
 */
 /*global $, spa */
 
-var spa = (function () {
+spa.shell = (function () {
   var initModule = function ( $container ) {
-    spa.shell.initModule( $container );
+    alert('shell_' + $container.attr('class'));
+    spa.user.initModule();
   };
 
   return { initModule: initModule };

@@ -141,15 +141,6 @@
 						</ul><!-- /.breadcrumb -->
 					</div>
 					<div class="page-content">
-						<div class="page-header">
-							<h1>
-								jqGrid
-								<small>
-									<i class="ace-icon fa fa-angle-double-right"></i>
-									Dynamic tables and grids using jqGrid plugin
-								</small>
-							</h1>
-						</div><!-- /.page-header -->
 						<div class="row">
 							<div class="col-xs-12">
 								<table id="grid-table"></table>
@@ -203,10 +194,13 @@
 		<script src="assets/js/ace-elements.min.js"></script>
 		<script src="assets/js/ace.min.js"></script>
         <script src="spa/spa.js"></script>
+		<script src="spa/spa.shell.js"></script>
+		<script src="spa/user_manage/spa.user.js"></script>
+		<script src="spa/user_manage/spa.user.list.js"></script>
 		<!-- inline scripts related to this page -->
 		<script type="text/javascript">
 		    $(function(){
-		        //spa.initModule($('.main-content'));
+		        spa.initModule($('.main-content'));
 		    });
 
 			var grid_data = 
