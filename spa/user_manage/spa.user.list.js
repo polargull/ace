@@ -44,48 +44,35 @@ spa.user.list = (function () {
       });
 
       jqueryMap.$grid_selector.jqGrid({
-          subGridRowExpanded: function (subgridDivId) {
-              var subgridTableId = subgridDivId + "_t";
-              $("#" + subgridDivId).html("<table id='" + subgridTableId + "'></table>");
-              $("#" + subgridTableId).jqGrid({
-                  datatype: 'local',
-                  colNames: ['No','Item Name','Qty'],
-                  colModel: [
-                      { name: 'id', width: 50 },
-                      { name: 'name', width: 150 },
-                      { name: 'qty', width: 50 }
-                  ]
-              });
-          },
-          url: 'spa/user_manage/data.json',
-          datatype: "json",
-          height: 350,
-          colNames:[' ', 'ID','Last Sales','Name', 'Stock', 'Ship via','Notes'],
-          colModel:[
-              {name:'myac',index:'', width:80, fixed:true, sortable:false, resize:false,
-                  formatter:'actions',
-                  formatoptions:{
-                      keys:true,
-                  }
-              },
-              {name:'id',index:'id', width:60, sorttype:"int", editable: true},
-              {name:'sdate',index:'sdate',width:90, editable:true, sorttype:"date"},
-              {name:'name',index:'name', width:150,editable: true,editoptions:{size:"20",maxlength:"30"}},
-              {name:'stock',index:'stock', width:70, editable: true,edittype:"checkbox",editoptions: {value:"Yes:No"}},
-              {name:'ship',index:'ship', width:90, editable: true,edittype:"select",editoptions:{value:"FE:FedEx;IN:InTime;TN:TNT;AR:ARAMEX"}},
-              {name:'note',index:'note', width:150, sortable:false,editable: true,edittype:"textarea", editoptions:{rows:"2",cols:"10"}}
-          ],
-          viewrecords : true,
-          rowNum:10,
-          rowList:[10,20,30],
-          pager : jqueryMap.$pager_selector,
-          multiselect: true,
+          url          : 'spa/user_manage/data.json',
+          datatype     : "json",
+          height       : 350,
+          colNames     : [ ' ', 'ID', '用户名', '实名', '状态', '创建时间', '更新时间' ],
+          viewrecords  : true,
+          rowNum       : 10,
+          rowList      : [ 10, 20, 30 ],
+          pager        : jqueryMap.$pager_selector,
+          multiselect  : true,
+          editurl      : "./dummy.php",
           loadComplete : function() {
               setTimeout(function() {
                   updatePagerIcons();
               }, 0);
           },
-          editurl: "./dummy.php"
+          colModel     : [
+            {name:'myac',index:'', width:80, fixed:true, resize:false,
+                formatter:'actions',
+                formatoptions:{
+                    keys:true,
+                }
+            },
+            {name:'id',   index:'id',    width:60 },
+            {name:'sdate',index:'sdate', width:90 },
+            {name:'name', index:'name',  width:150},
+            {name:'stock',index:'stock', width:70 },
+            {name:'ship', index:'ship',  width:90 },
+            {name:'note', index:'note',  width:150}
+          ]
       });
       jqueryMap.$window.triggerHandler('resize.jqGrid');//trigger window resize to make the grid get the correct size
   };
