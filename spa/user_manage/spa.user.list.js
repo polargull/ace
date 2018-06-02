@@ -15,33 +15,7 @@ spa.user.list = (function () {
   // 1.声明初始化作用域变量 configMap用于模块配置, stateMap保存运行时状态值, jqueryMap缓存JQuery集合
   var
     jqueryMap = {},
-    updatePagerIcons, initGrid, setJqueryMap, initModule,
-    grid_data =
-  			[
-  				{id:"1",name:"Desktop Computer",note:"note",stock:"Yes",ship:"FedEx", sdate:"2007-12-03"},
-  				{id:"2",name:"Laptop",note:"Long text ",stock:"Yes",ship:"InTime",sdate:"2007-12-03"},
-  				{id:"3",name:"LCD Monitor",note:"note3",stock:"Yes",ship:"TNT",sdate:"2007-12-03"},
-  				{id:"4",name:"Speakers",note:"note",stock:"No",ship:"ARAMEX",sdate:"2007-12-03"},
-  				{id:"5",name:"Laser Printer",note:"note2",stock:"Yes",ship:"FedEx",sdate:"2007-12-03"},
-  				{id:"6",name:"Play Station",note:"note3",stock:"No", ship:"FedEx",sdate:"2007-12-03"},
-  				{id:"7",name:"Mobile Telephone",note:"note",stock:"Yes",ship:"ARAMEX",sdate:"2007-12-03"},
-  				{id:"8",name:"Server",note:"note2",stock:"Yes",ship:"TNT",sdate:"2007-12-03"},
-  				{id:"9",name:"Matrix Printer",note:"note3",stock:"No", ship:"FedEx",sdate:"2007-12-03"},
-  				{id:"10",name:"Desktop Computer",note:"note",stock:"Yes",ship:"FedEx", sdate:"2007-12-03"},
-  				{id:"11",name:"Laptop",note:"Long text ",stock:"Yes",ship:"InTime",sdate:"2007-12-03"},
-  				{id:"12",name:"LCD Monitor",note:"note3",stock:"Yes",ship:"TNT",sdate:"2007-12-03"},
-  				{id:"13",name:"Speakers",note:"note",stock:"No",ship:"ARAMEX",sdate:"2007-12-03"},
-  				{id:"14",name:"Laser Printer",note:"note2",stock:"Yes",ship:"FedEx",sdate:"2007-12-03"},
-  				{id:"15",name:"Play Station",note:"note3",stock:"No", ship:"FedEx",sdate:"2007-12-03"},
-  				{id:"16",name:"Mobile Telephone",note:"note",stock:"Yes",ship:"ARAMEX",sdate:"2007-12-03"},
-  				{id:"17",name:"Server",note:"note2",stock:"Yes",ship:"TNT",sdate:"2007-12-03"},
-  				{id:"18",name:"Matrix Printer",note:"note3",stock:"No", ship:"FedEx",sdate:"2007-12-03"},
-  				{id:"19",name:"Matrix Printer",note:"note3",stock:"No", ship:"FedEx",sdate:"2007-12-03"},
-  				{id:"20",name:"Desktop Computer",note:"note",stock:"Yes",ship:"FedEx", sdate:"2007-12-03"},
-  				{id:"21",name:"Laptop",note:"Long text ",stock:"Yes",ship:"InTime",sdate:"2007-12-03"},
-  				{id:"22",name:"LCD Monitor",note:"note3",stock:"Yes",ship:"TNT",sdate:"2007-12-03"},
-  				{id:"23",name:"Speakers",note:"note",stock:"No",ship:"ARAMEX",sdate:"2007-12-03"}
-  			];
+    updatePagerIcons, initGrid, setJqueryMap, initModule;
   // 2.创建通用方法
 
   // 3.创建操作DOM相关方法
@@ -60,9 +34,9 @@ spa.user.list = (function () {
       });
 
       //resize on sidebar collapse/expand
-      jqueryMap.$document.on('settings.ace.jqGrid' , function( event_name ) {
+      jqueryMap.$document.on('settings.ace.jqGrid' , function( ev, event_name, collapsed ) {
+          console.debug(ev, collapsed);
           if( event_name === 'sidebar_collapsed' || event_name === 'main_container_fixed' ) {
-              //setTimeout is for webkit only to give time for DOM changes and then redraw!!!
               setTimeout(function() {
                   jqueryMap.$grid_selector.jqGrid( 'setGridWidth', jqueryMap.$parent_column.width() );
               }, 20);
@@ -83,9 +57,9 @@ spa.user.list = (function () {
                   ]
               });
           },
-          data:grid_data,
-          datatype: "local",
-          height: 250,
+          url: 'spa/user_manage/data.json',
+          datatype: "json",
+          height: 305,
           colNames:[' ', 'ID','Last Sales','Name', 'Stock', 'Ship via','Notes'],
           colModel:[
               {name:'myac',index:'', width:80, fixed:true, sortable:false, resize:false,
@@ -107,9 +81,8 @@ spa.user.list = (function () {
           pager : jqueryMap.$pager_selector,
           multiselect: true,
           loadComplete : function() {
-              var table = this;
-              setTimeout(function(){
-                  updatePagerIcons(table);
+              setTimeout(function() {
+                  updatePagerIcons();
               }, 0);
           },
           editurl: "./dummy.php",//nothing is saved
@@ -119,19 +92,18 @@ spa.user.list = (function () {
   };
   //replace icons with FontAwesome icons like above
   updatePagerIcons = function () {
-    var replacement =
-    {
+    var
+        replacement = {
         'ui-icon-seek-first' : 'ace-icon fa fa-angle-double-left bigger-140',
-        'ui-icon-seek-prev' : 'ace-icon fa fa-angle-left bigger-140',
-        'ui-icon-seek-next' : 'ace-icon fa fa-angle-right bigger-140',
-        'ui-icon-seek-end' : 'ace-icon fa fa-angle-double-right bigger-140'
+        'ui-icon-seek-prev'  : 'ace-icon fa fa-angle-left bigger-140',
+        'ui-icon-seek-next'  : 'ace-icon fa fa-angle-right bigger-140',
+        'ui-icon-seek-end'   : 'ace-icon fa fa-angle-double-right bigger-140'
     };
-    $('.ui-pg-table:not(.navtable) > tbody > tr > .ui-pg-button > .ui-icon').each(function(){
+    $('.ui-pg-table:not(.navtable) > tbody > tr > .ui-pg-button > .ui-icon').each(function() {
         var
             icon = $(this),
             $class = $.trim(icon.attr('class').replace('ui-icon', ''));
-
-        if(replacement.hasOwnProperty($class)) {
+        if (replacement.hasOwnProperty($class)) {
             icon.attr('class', 'ui-icon '+replacement[$class]);
         }
     });
