@@ -13,7 +13,6 @@
 
 spa.shell = (function () {
   var initModule = function ( $container ) {
-    alert('shell_' + $container.attr('class'));
     spa.user.initModule();
   };
 
