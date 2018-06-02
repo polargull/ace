@@ -59,7 +59,7 @@ spa.user.list = (function () {
           },
           url: 'spa/user_manage/data.json',
           datatype: "json",
-          height: 305,
+          height: 350,
           colNames:[' ', 'ID','Last Sales','Name', 'Stock', 'Ship via','Notes'],
           colModel:[
               {name:'myac',index:'', width:80, fixed:true, sortable:false, resize:false,
@@ -85,8 +85,7 @@ spa.user.list = (function () {
                   updatePagerIcons();
               }, 0);
           },
-          editurl: "./dummy.php",//nothing is saved
-          caption: "jqGrid with inline editing",
+          editurl: "./dummy.php"
       });
       jqueryMap.$window.triggerHandler('resize.jqGrid');//trigger window resize to make the grid get the correct size
   };
