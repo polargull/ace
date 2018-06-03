@@ -12,8 +12,8 @@
 /*global $, spa */
 
 spa.user = (function () {
-  var initModule = function () {
-    spa.user.list.initModule();
+  var initModule = function ( $container ) {
+    spa.user.list.initModule( $container );
   };
 
   return { initModule: initModule };

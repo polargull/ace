@@ -13,7 +13,7 @@
 
 spa.shell = (function () {
   var initModule = function ( $container ) {
-    spa.user.initModule();
+    spa.user.initModule( $container );
   };
 
   return { initModule: initModule };

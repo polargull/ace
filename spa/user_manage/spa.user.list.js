@@ -14,18 +14,40 @@
 spa.user.list = (function () {
   // 1.声明初始化作用域变量 configMap用于模块配置, stateMap保存运行时状态值, jqueryMap缓存JQuery集合
   var
+    configMap = {
+        html : String()
+        + '<div class="row">'
+        + '    <div class="col-xs-12">'
+        + '        <form class="form-inline">'
+        + '            <button class="btn btn-success btn-sm">'
+        + '                <i class="glyphicon glyphicon-plus"></i>'
+        + '            </button>'
+        + '            <input type="text" class="input-medium" placeholder="用户名" />'
+        + '            <button type="button" class="btn btn-info btn-sm">'
+        + '                <i class="bigger-110"></i>查询'
+        + '            </button>'
+        + '        </form>'
+        + '        <div class="space-6"></div>'
+        + '        <table id="grid-table"></table>'
+        + '        <div id="grid-pager"></div>'
+        + '    </div>'
+        + '</div>'
+    },
+    stateMap = { $page_content : null },
     jqueryMap = {},
     updatePagerIcons, initGrid, setJqueryMap, initModule;
   // 2.创建通用方法
 
   // 3.创建操作DOM相关方法
   setJqueryMap = function () {
+    var $page_content = stateMap.$page_content;
     jqueryMap = {
         $window         : $(window),
         $document       : $(document),
+        $page_content   : $page_content,
         $grid_selector  : $('#grid-table'),
-        $pager_selector : $('#grid-pager'),
-        $parent_column  : $('#grid-table').closest('[class*="col-"]')
+        $parent_column  : $('#grid-table').closest('[class*="col-"]'),
+        $pager_selector : $('#grid-pager')
     };
   };
   initGrid = function () {
@@ -66,12 +88,12 @@ spa.user.list = (function () {
                     keys:true,
                 }
             },
-            {name:'id',   index:'id',    width:60 },
-            {name:'sdate',index:'sdate', width:90 },
-            {name:'name', index:'name',  width:150},
-            {name:'stock',index:'stock', width:70 },
-            {name:'ship', index:'ship',  width:90 },
-            {name:'note', index:'note',  width:150}
+            { name:'id',   index:'id',    width:60 },
+            { name:'sdate',index:'sdate', width:90 },
+            { name:'name', index:'name',  width:150},
+            { name:'stock',index:'stock', width:70 },
+            { name:'ship', index:'ship',  width:90 },
+            { name:'note', index:'note',  width:150}
           ]
       });
       jqueryMap.$window.triggerHandler('resize.jqGrid');//trigger window resize to make the grid get the correct size
@@ -96,7 +118,9 @@ spa.user.list = (function () {
   };
   // 4.创建事件处理
   // 5.创建公共方法
-  initModule = function () {
+  initModule = function ( $container ) {
+    stateMap.$page_content = $container;
+    $container.html( configMap.html );
     setJqueryMap();
     initGrid();
   };
