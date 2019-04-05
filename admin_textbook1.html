@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta charset="utf-8"/>
+    <title>jqGrid - Ace Admin</title>
+    <meta name="description" content="Dynamic tables and grids using jqGrid plugin"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+    <!-- bootstrap & fontawesome -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="assets/font-awesome/4.5.0/css/font-awesome.min.css"/>
+    <!-- page specific plugin styles -->
+    <link rel="stylesheet" href="assets/css/jquery-ui.min.css"/>
+    <link rel="stylesheet" href="assets/css/bootstrap-datepicker3.min.css"/>
+    <link rel="stylesheet" href="assets/css/ui.jqgrid.min.css"/>
+    <!-- text fonts -->
+    <link rel="stylesheet" href="assets/css/fonts.googleapis.com.css"/>
+    <!-- ace styles -->
+    <link rel="stylesheet" href="assets/css/ace.min.css" class="ace-main-stylesheet" id="main-ace-style"/>
+    <!--[if lte IE 9]>
+    <link rel="stylesheet" href="assets/css/ace-part2.min.css" class="ace-main-stylesheet"/>
+    <![endif]-->
+    <link rel="stylesheet" href="assets/css/ace-skins.min.css"/>
+    <link rel="stylesheet" href="assets/css/ace-rtl.min.css"/>
+    <!--[if lte IE 9]>
+    <link rel="stylesheet" href="assets/css/ace-ie.min.css"/>
+    <![endif]-->
+    <!-- inline styles related to this page -->
+    <!-- ace settings handler -->
+    <script src="assets/js/ace-extra.min.js"></script>
+    <!-- HTML5shiv and Respond.js for IE8 to support HTML5 elements and media quseries -->
+    <script src="assets/js/html5shiv.min.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <!--[if !IE]> -->
+    <script src="assets/js/jquery-2.1.4.min.js"></script>
+    <!-- <![endif]-->
+    <!--[if IE]>
+    <script src="assets/js/jquery-1.11.3.min.js"></script>
+    <![endif]-->
+    <script src="assets/js/bootstrap.min.js"></script>
+    <!-- ace scripts -->
+    <script src="assets/js/ace-elements.min.js"></script>
+    <script src="assets/js/ace.min.js"></script>
+    <link rel="stylesheet" href="zTree_v3/css/demo.css" type="text/css">
+    <link rel="stylesheet" href="zTree_v3/css/zTreeStyle/zTreeStyle.css" type="text/css">
+    <script type="text/javascript" src="zTree_v3/js/jquery.ztree.core.js"></script>
+    <script type="text/javascript" src="zTree_v3/js/jquery.ztree.excheck.js"></script>
+    <script type="text/javascript" src="zTree_v3/js/jquery.ztree.exedit.js"></script>
+    <style type="text/css">
+			.ztree li span.button.add {margin-left:2px; margin-right: -1px; background-position:-144px 0; vertical-align:top; *vertical-align:middle}
+
+    </style>
+</head>
+<body class="no-skin">
+<div id="navbar" class="navbar navbar-default          ace-save-state">
+    <div class="navbar-container ace-save-state" id="navbar-container">
+        <div class="navbar-header pull-left">
+            <a href="index.html" class="navbar-brand">
+                <small>
+                    <i class="fa fa-leaf"></i>
+                    Ace Admin
+                </small>
+            </a>
+        </div>
+        <div class="navbar-buttons navbar-header pull-right" role="navigation">
+            <ul class="nav ace-nav">
+                <li class="light-blue dropdown-modal">
+                    <a data-toggle="dropdown" href="#" class="dropdown-toggle">
+                        <img class="nav-user-photo" src="assets/images/avatars/user.jpg" alt="Jason's Photo"/>
+                        <span class="user-info">
+									<small>Welcome,</small>
+									Jason
+								</span>
+                        <i class="ace-icon fa fa-caret-down"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div><!-- /.navbar-container -->
+</div>
+<div class="main-container ace-save-state" id="main-container">
+    <div class="main-content">
+        <div class="main-content-inner">
+            <div class="page-content">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <!-- PAGE CONTENT BEGINS -->
+                        <div class="row">
+                            <div class="col-sm-2">
+                                <ul id="treeDemo" class="ztree" style="position:absolute;top:-6px;"></ul>
+                            </div>
+                            <div class="col-sm-10">
+                                <div class="widget-box widget-color-green2">
+                                    <div class="widget-header">
+                                        <h4 class="widget-title lighter smaller">
+                                            内容
+                                        </h4>
+                                    </div>
+                                    <div class="widget-body">
+                                        <div class="widget-main padding-8 pre-scrollable">
+                                            <p>
+                                                <img class="normal" width="160px" src="images/test.jpeg"/>
+                                            </p>
+                                            <p style="margin-top: 26px; margin-bottom: 0px; padding: 0px; font-size: 16px; line-height: 24px; color: rgb(51, 51, 51); text-align: justify;">
+                                                米克-舒马赫参加法拉利F1赛车试车。图片来源：Osports全体育图片社
+                                            </p>
+                                            <p style="margin-top: 22px; margin-bottom: 0px; padding: 0px; font-size: 16px; line-height: 24px; color: rgb(51, 51, 51); text-align: justify;">
+                                                <span class="bjh-p">中新网客户端北京4月3日电(王昊)开着红色的法拉利赛车，围场边站着科琳娜，这F1车迷熟悉的一幕中，唯一不同的是，在赛道上驰骋的人从车王舒马赫换成了他的儿子。当地时间4月2日，米克-舒马赫在巴林完成了首次F1试车，而他的父亲，还在为了健康做着顽强的斗争。</span>
+                                            </p>
+                                            <p style="margin-top: 22px; margin-bottom: 0px; padding: 0px; font-size: 16px; line-height: 24px; color: rgb(51, 51, 51); text-align: justify;">
+                                                <span class="bjh-p">根据法拉利车队官方发布的消息，米克-舒马赫在试车时，驾驶着SF90共完成了56圈超300公里的里程数，最佳单圈成绩1分29秒976，位列当天最快圈速第二。在完成测试后，他说：“我真的非常享受这一天，进入车库伊始就像回家了一样，很多人都是从我很小的时候就认识了。”</span>
+                                            </p>
+                                            <p style="margin-top: 26px; margin-bottom: 0px; padding: 0px; font-size: 16px; line-height: 24px; color: rgb(51, 51, 51); text-align: justify;">
+                                                米克驾驶法拉利F1赛车。图片来源：Osports全体育图片社
+                                            </p>
+                                            <p style="margin-top: 22px; margin-bottom: 0px; padding: 0px; font-size: 16px; line-height: 24px; color: rgb(51, 51, 51); text-align: justify;">
+                                                <span class="bjh-p">确实，对于法拉利车队来说，“舒马赫”就意味着是自家人。迈克尔-舒马赫是F1历史上最伟大的车手之一，获得过7次车手总冠军、91次分站赛第一。在他的巅峰期，曾和法拉利车队一起，创造了无数传奇记录，被称为车王。</span>
+                                            </p>
+                                            <p style="margin-top: 22px; margin-bottom: 0px; padding: 0px; font-size: 16px; line-height: 24px; color: rgb(51, 51, 51); text-align: justify;">
+                                                <span class="bjh-p">代表法拉利车队征战11年后，他于2006年宣布退役，后曾短暂复出。自2009年迈克尔-舒马赫在穆杰罗测试法拉利F2007之后，如今，又有一位舒马赫驾驶了法拉利F1赛车。</span>
+                                            </p>
+                                            <p style="margin-top: 22px; margin-bottom: 0px; padding: 0px; font-size: 16px; line-height: 24px; color: rgb(51, 51, 51); text-align: justify;">
+                                                <span class="bjh-p">在米克还很小的时候，就曾被父亲抱着来到F1赛场。当时小小的他，穿着迷你版的法拉利赛车服，一脸天真。而如今，刚满20岁的米克还是穿着法拉利赛车服，像父亲一样，在F1赛道上追逐速度。</span>
+                                            </p>
+                                            <p>
+                                                <br/>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="widget-box" style="border: 1px solid #cccccc08;">
+                                    <div class="widget-main padding-8">
+                                        <button class="btn btn-info">上页</button>
+                                        <button class="btn btn-info">下页</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- PAGE CONTENT ENDS -->
+                        </div><!-- /.col -->
+                    </div><!-- /.row -->
+                </div>
+            </div>
+        </div><!-- /.main-content -->
+    </div><!-- /.main-container -->
+    <!-- inline scripts related to this page -->
+    <script type="text/javascript">
+		<!--
+		var setting = {
+			view: {
+				addHoverDom: addHoverDom,
+				removeHoverDom: removeHoverDom,
+				selectedMulti: false
+			},
+			edit: {
+				enable: true,
+				editNameSelectAll: true,
+				showRemoveBtn: showRemoveBtn,
+				showRenameBtn: showRenameBtn
+			},
+			data: {
+				simpleData: {
+					enable: true
+				}
+			},
+			callback: {
+				beforeDrag: beforeDrag,
+				beforeEditName: beforeEditName,
+				beforeRemove: beforeRemove,
+				beforeRename: beforeRename,
+				onRemove: onRemove,
+				onRename: onRename
+			}
+		};
+
+		var zNodes =[
+			{ id:1, pId:0, name:"父节点 1", open:true},
+			{ id:11, pId:1, name:"叶子节点 1-1"},
+			{ id:12, pId:1, name:"叶子节点 1-2"},
+			{ id:13, pId:1, name:"叶子节点 1-3"},
+			{ id:2, pId:0, name:"父节点 2", open:true},
+			{ id:21, pId:2, name:"叶子节点 2-1"},
+			{ id:22, pId:2, name:"叶子节点 2-2"},
+			{ id:23, pId:2, name:"叶子节点 2-3"},
+			{ id:3, pId:0, name:"父节点 3", open:true},
+			{ id:31, pId:3, name:"叶子节点 3-1"},
+			{ id:32, pId:3, name:"叶子节点 3-2"},
+			{ id:33, pId:3, name:"叶子节点 3-3"}
+		];
+		var log, className = "dark";
+		function beforeDrag(treeId, treeNodes) {
+			return false;
+		}
+		function beforeEditName(treeId, treeNode) {
+			className = (className === "dark" ? "":"dark");
+			showLog("[ "+getTime()+" beforeEditName ]&nbsp;&nbsp;&nbsp;&nbsp; " + treeNode.name);
+			var zTree = $.fn.zTree.getZTreeObj("treeDemo");
+			zTree.selectNode(treeNode);
+			setTimeout(function() {
+				if (confirm("进入节点 -- " + treeNode.name + " 的编辑状态吗？")) {
+					setTimeout(function() {
+						zTree.editName(treeNode);
+					}, 0);
+				}
+			}, 0);
+			return false;
+		}
+		function beforeRemove(treeId, treeNode) {
+			className = (className === "dark" ? "":"dark");
+			showLog("[ "+getTime()+" beforeRemove ]&nbsp;&nbsp;&nbsp;&nbsp; " + treeNode.name);
+			var zTree = $.fn.zTree.getZTreeObj("treeDemo");
+			zTree.selectNode(treeNode);
+			return confirm("确认删除 节点 -- " + treeNode.name + " 吗？");
+		}
+		function onRemove(e, treeId, treeNode) {
+			showLog("[ "+getTime()+" onRemove ]&nbsp;&nbsp;&nbsp;&nbsp; " + treeNode.name);
+		}
+		function beforeRename(treeId, treeNode, newName, isCancel) {
+			className = (className === "dark" ? "":"dark");
+			showLog((isCancel ? "<span style='color:red'>":"") + "[ "+getTime()+" beforeRename ]&nbsp;&nbsp;&nbsp;&nbsp; " + treeNode.name + (isCancel ? "</span>":""));
+			if (newName.length == 0) {
+				setTimeout(function() {
+					var zTree = $.fn.zTree.getZTreeObj("treeDemo");
+					zTree.cancelEditName();
+					alert("节点名称不能为空.");
+				}, 0);
+				return false;
+			}
+			return true;
+		}
+		function onRename(e, treeId, treeNode, isCancel) {
+			showLog((isCancel ? "<span style='color:red'>":"") + "[ "+getTime()+" onRename ]&nbsp;&nbsp;&nbsp;&nbsp; " + treeNode.name + (isCancel ? "</span>":""));
+		}
+		function showRemoveBtn(treeId, treeNode) {
+			return !treeNode.isFirstNode;
+		}
+		function showRenameBtn(treeId, treeNode) {
+			return !treeNode.isLastNode;
+		}
+		function showLog(str) {
+			if (!log) log = $("#log");
+			log.append("<li class='"+className+"'>"+str+"</li>");
+			if(log.children("li").length > 8) {
+				log.get(0).removeChild(log.children("li")[0]);
+			}
+		}
+		function getTime() {
+			var now= new Date(),
+			h=now.getHours(),
+			m=now.getMinutes(),
+			s=now.getSeconds(),
+			ms=now.getMilliseconds();
+			return (h+":"+m+":"+s+ " " +ms);
+		}
+
+		var newCount = 1;
+		function addHoverDom(treeId, treeNode) {
+			var sObj = $("#" + treeNode.tId + "_span");
+			if (treeNode.editNameFlag || $("#addBtn_"+treeNode.tId).length>0) return;
+			var addStr = "<span class='button add' id='addBtn_" + treeNode.tId
+				+ "' title='add node' onfocus='this.blur();'></span>";
+			sObj.after(addStr);
+			var btn = $("#addBtn_"+treeNode.tId);
+			if (btn) btn.bind("click", function(){
+				var zTree = $.fn.zTree.getZTreeObj("treeDemo");
+				zTree.addNodes(treeNode, {id:(100 + newCount), pId:treeNode.id, name:"new node" + (newCount++)});
+				return false;
+			});
+		};
+		function removeHoverDom(treeId, treeNode) {
+			$("#addBtn_"+treeNode.tId).unbind().remove();
+		};
+		function selectAll() {
+			var zTree = $.fn.zTree.getZTreeObj("treeDemo");
+			zTree.setting.edit.editNameSelectAll =  $("#selectAll").attr("checked");
+		}
+
+		$(document).ready(function(){
+			$.fn.zTree.init($("#treeDemo"), setting, zNodes);
+			$("#selectAll").bind("click", selectAll);
+		});
+		//-->
+
+    </script>
+</body>
+</html>
